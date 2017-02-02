@@ -17,8 +17,6 @@ class ShareSetupView extends View
     @emitter = new Emitter
 
   initialize: ->
-    @miniEditor.on 'focusout', => @detach() unless @detaching
-
     @subscriptions = new CompositeDisposable
     @subscriptions.add atom.commands.add 'atom-workspace', 'core:confirm': =>
       if @miniEditor.getText() != ''
